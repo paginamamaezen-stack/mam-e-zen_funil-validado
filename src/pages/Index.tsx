@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import avatarMaeAguia from "@/assets/avatar-mae-aguia.png";
 import heroIntroVideo from "@/assets/hero-intro-video.mp4";
 import heroVideo from "@/assets/hero-video.mp4";
-import { useTracker } from "@/hooks/useTracker";
+import { useGA4 } from "@/hooks/useGA4";
 import Footer from "@/components/landing/Footer";
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/c88zju2_683076";
@@ -64,28 +64,7 @@ const quizQuestions = [
 ];
 
 const Index = () => {
-  const { 
-    trackVideoScreenView,
-    trackVideoStart, 
-    trackVideoEnd, 
-    trackVideoSkip, 
-    trackVideoProgress,
-    trackQuizScreenView,
-    trackQuizStart, 
-    trackQuizStep,
-    trackQuizAnswer,
-    trackQuizAdvance,
-    trackQuizExit,
-    trackQuizDoubt,
-    trackQuizComplete,
-    trackQuizSuccess,
-    trackQuizRetry,
-    trackContentUnlocked,
-    trackContentView,
-    trackScrollDepth,
-    trackCheckout,
-    trackCTAClick 
-  } = useTracker();
+  const { trackCtaInicioClick, trackCheckoutClick } = useGA4();
   
   const [quizStep, setQuizStep] = useState(0);
   const [quizStarted, setQuizStarted] = useState(false);
@@ -95,31 +74,7 @@ const Index = () => {
   const [viewerCount, setViewerCount] = useState(7);
   const [videoEnded, setVideoEnded] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
-  const [trackedScrollDepths, setTrackedScrollDepths] = useState<number[]>([]);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Track page view e scroll depth
-  useEffect(() => {
-    trackVideoScreenView();
-    
-    // Scroll tracking
-    const handleScroll = () => {
-      if (!showFullContent) return;
-      
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = Math.round((window.scrollY / scrollHeight) * 100);
-      
-      [25, 50, 75, 100].forEach(depth => {
-        if (scrollPercent >= depth && !trackedScrollDepths.includes(depth)) {
-          trackScrollDepth(depth);
-          setTrackedScrollDepths(prev => [...prev, depth]);
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [showFullContent, trackedScrollDepths]);
 
   // Contador de visualizações dinâmico
   useEffect(() => {
@@ -136,39 +91,24 @@ const Index = () => {
 
   const handleStartQuiz = () => {
     setQuizStarted(true);
-    trackQuizStart();
-    trackQuizStep(1);
   };
 
-  const handleAnswer = (optionType: string, answerText: string) => {
-    trackQuizAnswer(quizStep + 1, answerText, optionType);
-
+  const handleAnswer = (optionType: string) => {
     if (optionType === 'exit') {
       setQuizResult('exit');
       setQuizCompleted(true);
-      trackQuizComplete('exit');
-      trackQuizExit(quizStep + 1, 'user_exit');
     } else if (optionType === 'doubt') {
       setQuizResult('doubt');
       setQuizCompleted(true);
-      trackQuizComplete('doubt');
-      trackQuizDoubt(quizStep + 1);
     } else if (optionType === 'advance') {
       if (quizStep < quizQuestions.length - 1) {
-        const nextStep = quizStep + 1;
-        setQuizStep(nextStep);
-        trackQuizAdvance(quizStep + 1, nextStep + 1);
-        trackQuizStep(nextStep + 1);
+        setQuizStep(quizStep + 1);
       } else {
         setQuizResult('eagle');
         setQuizCompleted(true);
         setShowFullContent(true);
-        trackQuizComplete('eagle');
-        trackQuizSuccess();
-        trackContentUnlocked('quiz_success');
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
-          trackContentView();
         }, 500);
       }
     }
@@ -178,14 +118,12 @@ const Index = () => {
 
   const handleVideoEnd = () => {
     setVideoEnded(true);
-    trackVideoEnd();
-    trackQuizScreenView();
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleStartVideo = () => {
     setVideoStarted(true);
-    trackVideoStart();
+    trackCtaInicioClick(); // GA4: cta_inicio_click
     if (videoRef.current) {
       videoRef.current.play();
     }
@@ -193,22 +131,17 @@ const Index = () => {
 
   const handleSkipVideo = () => {
     setVideoEnded(true);
-    trackVideoSkip();
-    trackQuizScreenView();
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleCheckoutClick = () => {
-    trackCheckout();
-    trackCTAClick('checkout_button', CHECKOUT_URL);
+    trackCheckoutClick(); // GA4: checkout_click
   };
 
   const handleShowContent = () => {
     setShowFullContent(true);
-    trackContentUnlocked('reconsideration');
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      trackContentView();
     }, 100);
   };
 
@@ -216,9 +149,7 @@ const Index = () => {
     setQuizCompleted(false);
     setQuizStarted(false);
     setQuizStep(0);
-    const prevResult = quizResult;
     setQuizResult(null);
-    trackQuizRetry(prevResult || 'unknown');
   };
 
   return (
@@ -407,7 +338,7 @@ const Index = () => {
                       {quizQuestions[quizStep].options.map((option, idx) => (
                         <button
                           key={idx}
-                          onClick={() => handleAnswer(option.type, option.text)}
+                          onClick={() => handleAnswer(option.type)}
                           className={`w-full p-4 rounded-xl text-center transition-all duration-300 font-bold text-sm border-2 hover:scale-[1.02] active:scale-[0.98] ${
                             option.type === 'advance' 
                               ? 'bg-primary text-primary-foreground border-primary shadow-glow hover:bg-primary/90' 

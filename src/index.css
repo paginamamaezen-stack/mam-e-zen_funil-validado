@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MamãeZen Design System - Dark/Gothic Theme with Red Accents
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark gothic theme as default */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary - Netflix Red */
+    --primary: 357 95% 47%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Primary glow variant */
+    --primary-glow: 357 100% 55%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 71%;
+
+    --accent: 0 100% 10%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 357 95% 47%;
+
+    --radius: 0.875rem;
+
+    /* Custom gradients */
+    --gradient-bg: radial-gradient(circle at top, hsl(0 100% 5%), hsl(0 0% 0%) 70%);
+    --gradient-primary: linear-gradient(180deg, hsl(357 100% 55%), hsl(357 95% 47%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 5%));
+    --gradient-offer: linear-gradient(180deg, hsl(0 100% 5%), hsl(0 100% 2%));
+
+    /* Shadows */
+    --shadow-glow: 0 10px 30px hsl(357 95% 47% / 0.35);
+    --shadow-offer: 0 0 60px hsl(357 95% 47% / 0.25);
+
+    /* Sidebar - keeping for compatibility */
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 357 95% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 357 95% 47%;
+  }
+
+  .dark {
+    /* Same as root - dark theme is default */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 357 95% 47%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 357 100% 55%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 71%;
+    --accent: 0 100% 10%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 357 95% 47%;
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 357 95% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 357 95% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-offer {
+    background: var(--gradient-offer);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-offer {
+    box-shadow: var(--shadow-offer);
+  }
+
+  /* Radial gradient utility */
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+}
+
+/* Shimmer animation for CTA */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}

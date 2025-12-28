@@ -5,6 +5,7 @@ import avatarProtector from "@/assets/avatar-protector.png";
 
 interface OfferSectionProps {
   checkoutUrl: string;
+  onCheckoutClick?: () => void;
 }
 
 const benefits = [
@@ -16,7 +17,7 @@ const benefits = [
   { icon: Gift, text: "BÔNUS: Grupo VIP de mães fundadoras" },
 ];
 
-const OfferSection = ({ checkoutUrl }: OfferSectionProps) => {
+const OfferSection = ({ checkoutUrl, onCheckoutClick }: OfferSectionProps) => {
   return (
     <section className="relative overflow-hidden">
       {/* Background glow */}
@@ -113,7 +114,7 @@ const OfferSection = ({ checkoutUrl }: OfferSectionProps) => {
         </div>
 
         {/* CTA */}
-        <CTAButton checkoutUrl={checkoutUrl} variant="final" />
+        <CTAButton checkoutUrl={checkoutUrl} variant="final" onClick={onCheckoutClick} />
 
         {/* Final message */}
         <div className="mt-6 p-4 border border-border/50 rounded-lg">

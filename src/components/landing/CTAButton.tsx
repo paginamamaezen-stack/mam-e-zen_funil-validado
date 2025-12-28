@@ -4,9 +4,10 @@ import { ShieldCheck, Zap, ArrowRight, Lock } from "lucide-react";
 interface CTAButtonProps {
   checkoutUrl: string;
   variant?: "primary" | "hero" | "final";
+  onClick?: () => void;
 }
 
-const CTAButton = ({ checkoutUrl, variant = "primary" }: CTAButtonProps) => {
+const CTAButton = ({ checkoutUrl, variant = "primary", onClick }: CTAButtonProps) => {
   if (variant === "hero") {
     return (
       <div className="space-y-4">
@@ -15,7 +16,7 @@ const CTAButton = ({ checkoutUrl, variant = "primary" }: CTAButtonProps) => {
           size="lg"
           className="w-full relative overflow-hidden gradient-primary shadow-glow text-lg font-black py-7 rounded-xl group animate-pulse-glow"
         >
-          <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
+          <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={onClick}>
             <span className="relative z-10 flex items-center justify-center gap-2">
               <ShieldCheck className="w-6 h-6" />
               <span>QUERO PROTEGER MEU BEBÊ AGORA</span>
@@ -49,7 +50,7 @@ const CTAButton = ({ checkoutUrl, variant = "primary" }: CTAButtonProps) => {
           size="lg"
           className="w-full relative overflow-hidden gradient-primary shadow-glow text-lg font-black py-8 rounded-xl group"
         >
-          <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
+          <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={onClick}>
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
             <span className="relative z-10 flex flex-col items-center gap-1">
               <span className="flex items-center gap-2">
@@ -99,7 +100,7 @@ const CTAButton = ({ checkoutUrl, variant = "primary" }: CTAButtonProps) => {
       size="lg"
       className="w-full gradient-primary shadow-glow text-base font-bold py-6 rounded-xl group animate-pulse-glow"
     >
-      <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
+      <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={onClick}>
         <ShieldCheck className="w-5 h-5 mr-2" />
         <span>Garantir Minha Vaga Agora</span>
         <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

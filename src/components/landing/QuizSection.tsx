@@ -9,7 +9,9 @@ import avatarVictory from "@/assets/avatar-victory.png";
 import avatarProtector from "@/assets/avatar-protector.png";
 
 interface QuizSectionProps {
+  checkoutUrl: string;
   onComplete: () => void;
+  onCheckoutClick?: () => void;
 }
 
 interface Question {
@@ -67,7 +69,7 @@ const questions: Question[] = [
   },
 ];
 
-const QuizSection = ({ onComplete }: QuizSectionProps) => {
+const QuizSection = ({ checkoutUrl, onComplete, onCheckoutClick }: QuizSectionProps) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);

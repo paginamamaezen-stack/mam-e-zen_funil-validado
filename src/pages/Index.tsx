@@ -686,20 +686,64 @@ const Index = () => {
                 </p>
               </div>
 
-              <ul className="text-left space-y-3 mb-6">
-                <li className="flex items-center gap-3 bg-secondary/50 p-3 rounded-lg">
-                  <span className="text-primary text-lg">✔</span>
-                  <span className="text-foreground font-medium">Todas as atualizações futuras</span>
-                </li>
-                <li className="flex items-center gap-3 bg-secondary/50 p-3 rounded-lg">
-                  <span className="text-primary text-lg">✔</span>
-                  <span className="text-foreground font-medium">Sem mensalidade</span>
-                </li>
-                <li className="flex items-center gap-3 bg-secondary/50 p-3 rounded-lg">
-                  <span className="text-primary text-lg">✔</span>
-                  <span className="text-foreground font-medium">Suporte em português</span>
-                </li>
-              </ul>
+              {/* Comparativo de valor */}
+              <div className="text-left space-y-4 mb-6">
+                <div className="bg-secondary/70 border border-border rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-xl font-bold mt-0.5">✔</span>
+                    <div>
+                      <p className="text-foreground font-bold text-base leading-relaxed">
+                        Uma única consulta particular de urgência infantil pode custar de{" "}
+                        <span className="text-primary">R$ 250 a R$ 600</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-secondary/70 border border-border rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-xl font-bold mt-0.5">✔</span>
+                    <div>
+                      <p className="text-foreground font-bold text-base leading-relaxed">
+                        Uma ida rápida a uma clínica particular custa, em média,{" "}
+                        <span className="text-primary">R$ 300</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-primary/20 to-primary/5 border-2 border-primary/40 rounded-xl p-5">
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-2xl font-bold mt-0.5">✔</span>
+                    <div>
+                      <p className="text-foreground font-bold text-lg leading-relaxed">
+                        Aqui você paga apenas{" "}
+                        <span className="text-primary text-2xl font-black">R$ 49,90</span>{" "}
+                        <span className="text-muted-foreground font-normal">uma única vez</span>
+                      </p>
+                      <p className="text-primary font-bold mt-2 text-base">
+                        🦅 E tem orientação vitalícia com o Treinamento Mãe Águia
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Benefícios adicionais */}
+              <div className="grid grid-cols-3 gap-2 mb-6">
+                <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center">
+                  <span className="text-2xl mb-1 block">♾️</span>
+                  <span className="text-xs text-muted-foreground">Acesso Vitalício</span>
+                </div>
+                <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center">
+                  <span className="text-2xl mb-1 block">🔄</span>
+                  <span className="text-xs text-muted-foreground">Atualizações Grátis</span>
+                </div>
+                <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center">
+                  <span className="text-2xl mb-1 block">💬</span>
+                  <span className="text-xs text-muted-foreground">Suporte 24h</span>
+                </div>
+              </div>
 
               <a
                 href={CHECKOUT_URL}

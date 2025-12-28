@@ -117,23 +117,49 @@ const ThankYou = () => {
           {/* Linha pontilhada */}
           <div className="border-t-2 border-dashed border-foreground/20 my-6" />
 
-          {/* Detalhes do produto */}
-          <div className="space-y-3">
-            <div className="text-center">
-              <span className="text-xs text-muted-foreground tracking-widest">PRODUTO</span>
-              <p className="text-foreground font-black text-base mt-1">
-                Kit MamãeZen — Vitalício
-              </p>
+          {/* Resumo do pedido - Estilo profissional */}
+          <div className="space-y-4">
+            <h3 className="text-foreground font-black text-base tracking-wide">
+              Resumo do pedido
+            </h3>
+
+            {/* Produto com imagem */}
+            <div className="flex items-center gap-3 bg-secondary/80 rounded-xl p-3">
+              <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                <img 
+                  src={kitHeroImage} 
+                  alt="Kit Vitalício" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-foreground font-bold text-sm">
+                  kit vitalício mamaezen
+                </p>
+              </div>
+              <div className="text-foreground font-bold text-sm whitespace-nowrap">
+                R$ 49,90
+              </div>
             </div>
 
-            <div className="flex justify-between items-center bg-secondary/50 rounded-lg p-3">
-              <span className="text-muted-foreground text-xs tracking-wider">VALOR:</span>
-              <span className="text-primary font-black text-xl">R$ 49,90</span>
+            {/* Taxa de serviço */}
+            <div className="flex justify-between items-center px-1">
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground text-sm">Taxa de serviço</span>
+                <div className="w-4 h-4 rounded-full bg-muted-foreground/30 flex items-center justify-center">
+                  <span className="text-[10px] text-muted-foreground">?</span>
+                </div>
+              </div>
+              <span className="text-foreground font-medium text-sm">R$ 0,99</span>
             </div>
 
-            <div className="flex justify-between items-center">
-              <span className="text-muted-foreground text-xs tracking-wider">FORMA:</span>
-              <span className="text-foreground font-bold text-sm">Pagamento único</span>
+            {/* Linha separadora */}
+            <div className="border-t border-foreground/20" />
+
+            {/* Total */}
+            <div className="flex justify-between items-center px-1">
+              <span className="text-foreground font-bold text-lg">Total</span>
+              <span className="text-foreground font-black text-xl">R$ 50,89</span>
             </div>
           </div>
 

@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { Shield, CheckCircle, Printer, Home } from "lucide-react";
+import { CheckCircle, Printer, Home } from "lucide-react";
 import { useGA4 } from "@/hooks/useGA4";
 import { Link, useSearchParams } from "react-router-dom";
+import kitHeroImage from "@/assets/kit-vitalicio-hero.png";
 
 const ThankYou = () => {
   const { trackPurchase } = useGA4();
@@ -53,10 +54,14 @@ const ThankYou = () => {
         {/* Corpo do comprovante */}
         <div className="bg-foreground/[0.03] border-x border-foreground/10 px-6 py-8 font-mono text-sm">
           
-          {/* Header com ícone de segurança */}
+          {/* Header com imagem do kit */}
           <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 border-2 border-primary rounded-full mb-4 animate-pulse">
-              <Shield className="w-8 h-8 text-primary" />
+            <div className="w-full max-w-[280px] mx-auto mb-4 rounded-xl overflow-hidden shadow-glow">
+              <img 
+                src={kitHeroImage} 
+                alt="Kit Vitalício MamãeZen - Proteja seu filhote" 
+                className="w-full h-auto"
+              />
             </div>
             
             <div className="text-xs text-muted-foreground tracking-widest mb-2">

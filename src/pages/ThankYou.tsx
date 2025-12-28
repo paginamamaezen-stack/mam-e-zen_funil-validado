@@ -1,21 +1,34 @@
-import { useEffect, useState } from "react";
-import { Shield, CheckCircle, Printer, Download, Home } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Shield, CheckCircle, Printer, Home } from "lucide-react";
 import { useGA4 } from "@/hooks/useGA4";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const ThankYou = () => {
   const { trackPurchase } = useGA4();
+  const [searchParams] = useSearchParams();
   const [currentDate] = useState(new Date());
+  const hasTracked = useRef(false);
+  
   const [protocolNumber] = useState(() => {
-    // Gera um número de protocolo único baseado no timestamp
-    const timestamp = Date.now().toString(36).toUpperCase();
-    return `MZ-${timestamp}`;
+    // Usa transaction_id do Cakto se disponível, senão gera um único
+    const transactionId = searchParams.get('transaction_id') || searchParams.get('order_id');
+    if (transactionId) return `MZ-${transactionId.toUpperCase().slice(-8)}`;
+    return `MZ-${Date.now().toString(36).toUpperCase()}`;
   });
 
-  // Dispara evento de purchase ao carregar a página
+  // Dispara evento de purchase ao carregar a página (apenas uma vez)
   useEffect(() => {
+    if (hasTracked.current) return;
+    hasTracked.current = true;
+    
+    // Dispara purchase com dados do Cakto se disponíveis
     trackPurchase();
-  }, [trackPurchase]);
+    
+    // Limpa parâmetros da URL para evitar tracking duplicado em refresh
+    if (searchParams.toString()) {
+      window.history.replaceState({}, '', '/obrigado');
+    }
+  }, [trackPurchase, searchParams]);
 
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('pt-BR', {

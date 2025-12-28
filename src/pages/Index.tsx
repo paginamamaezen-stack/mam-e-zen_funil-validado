@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import avatarMaeAguia from "@/assets/avatar-mae-aguia.png";
 import heroIntroVideo from "@/assets/hero-intro-video.mp4";
 import heroVideo from "@/assets/hero-video.mp4";
-import { useGA4 } from "@/hooks/useGA4";
+import { useGA4, useCaktoPurchaseDetection } from "@/hooks/useGA4";
 import Footer from "@/components/landing/Footer";
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/c88zju2_683076";
@@ -64,8 +64,10 @@ const quizQuestions = [
 ];
 
 const Index = () => {
-  const { trackCtaInicioClick, trackCheckoutClick } = useGA4();
+  const { trackCtaInicioClick, trackCheckoutClick, trackPurchase } = useGA4();
   
+  // Detecta retorno do Cakto e dispara purchase automaticamente
+  useCaktoPurchaseDetection(trackPurchase);
   const [quizStep, setQuizStep] = useState(0);
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);

@@ -3,19 +3,21 @@ import CTAButton from "./CTAButton";
 
 interface HeroSectionProps {
   checkoutUrl: string;
+  onCtaClick?: () => void;
+  onCheckoutClick?: () => void;
 }
 
-const HeroSection = ({ checkoutUrl }: HeroSectionProps) => {
+const HeroSection = ({ checkoutUrl, onCtaClick, onCheckoutClick }: HeroSectionProps) => {
   return (
     <section className="text-center mb-10 animate-fade-in">
-      <div className="mb-6">
+      <div className="mb-6" onClick={onCtaClick}>
         <video 
           src={heroVideo} 
           autoPlay
           loop
           muted
           playsInline
-          className="w-full max-w-[320px] mx-auto rounded-2xl border-2 border-primary/30 shadow-glow"
+          className="w-full max-w-[320px] mx-auto rounded-2xl border-2 border-primary/30 shadow-glow cursor-pointer"
         />
       </div>
       
@@ -30,7 +32,7 @@ const HeroSection = ({ checkoutUrl }: HeroSectionProps) => {
         Você não é uma mãe ruim — só não teve orientação certa.
       </p>
 
-      <CTAButton checkoutUrl={checkoutUrl} variant="hero" />
+      <CTAButton checkoutUrl={checkoutUrl} variant="hero" onClick={onCheckoutClick} />
     </section>
   );
 };

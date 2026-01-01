@@ -167,53 +167,62 @@ const Index = () => {
             onClick={handleStartVideo}
             className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-background px-6"
           >
-            {/* Avatar da Especialista */}
-            <div className="relative mb-6">
-              <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full scale-125 animate-pulse"></div>
-              <img 
-                src={avatarMaeAguia} 
-                alt="Mãe Águia" 
-                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-primary shadow-glow object-cover"
-              />
+            {/* Badge de urgência */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-destructive/90 text-destructive-foreground px-4 py-2 rounded-full animate-pulse">
+              <span className="w-2 h-2 bg-white rounded-full animate-ping"></span>
+              <span className="text-sm font-bold">AO VIVO • {viewerCount} mães assistindo</span>
             </div>
 
-            {/* Título impactante */}
-            <h1 className="text-3xl md:text-5xl font-black text-center leading-tight mb-4">
-              <span className="text-primary">A CHANCE</span>{" "}
-              <span className="text-foreground">ESTÁ EM SUAS MÃOS</span>
-            </h1>
-            
-            {/* Subtítulo poderoso */}
-            <div className="text-center mb-6 px-4">
-              <p className="text-muted-foreground text-base md:text-lg font-medium mb-1">
-                Esse conteúdo <span className="text-primary font-black">NÃO</span> é para mães mimadas
+            {/* Headline CHOCANTE */}
+            <div className="text-center mb-6">
+              <p className="text-destructive text-lg md:text-xl font-black mb-2 animate-pulse">
+                ⚠️ ATENÇÃO MÃE DE PRIMEIRA VIAGEM
               </p>
-              <p className="text-foreground text-lg md:text-xl font-bold">
-                Esse conteúdo é para <span className="text-primary font-black uppercase">MÃES ÁGUIAS</span>
+              <h1 className="text-3xl md:text-5xl font-black text-center leading-tight mb-3">
+                <span className="text-foreground">Seu bebê pode </span>
+                <span className="text-destructive">ENGASGAR</span>
+                <br />
+                <span className="text-foreground">nos próximos </span>
+                <span className="text-primary">30 dias</span>
+              </h1>
+              <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto">
+                E se você não souber o que fazer... <span className="text-destructive font-bold">pode ser tarde demais</span>
               </p>
-              <p className="text-foreground text-lg md:text-xl font-bold">
-                🦅 que protegem o seu filhote
+            </div>
+
+            {/* Estatística chocante */}
+            <div className="bg-secondary/80 border border-destructive/30 rounded-2xl p-4 mb-6 max-w-sm">
+              <p className="text-center text-sm text-muted-foreground mb-1">Dados reais do Brasil:</p>
+              <p className="text-center text-2xl md:text-3xl font-black text-destructive">
+                1 bebê morre a cada 4 horas
+              </p>
+              <p className="text-center text-sm text-muted-foreground">
+                por engasgo que poderia ser evitado
               </p>
             </div>
             
-            {/* Botão de play */}
-            <div className="relative mb-6">
-              <div className="absolute inset-0 bg-primary/40 blur-3xl rounded-full animate-pulse scale-150"></div>
-              <div className="relative bg-gradient-to-br from-primary to-primary/70 border-4 border-primary-foreground/20 rounded-full p-8 shadow-glow">
-                <span className="text-5xl">▶️</span>
+            {/* Botão de play com CTA forte */}
+            <div className="relative mb-4">
+              <div className="absolute inset-0 bg-primary/50 blur-3xl rounded-full animate-pulse scale-150"></div>
+              <div className="relative bg-gradient-to-br from-primary to-primary/80 border-4 border-primary-foreground/30 rounded-full p-6 shadow-glow hover:scale-110 transition-transform">
+                <span className="text-4xl">▶️</span>
               </div>
             </div>
 
-            {/* CTA */}
+            {/* CTA direto */}
             <p className="text-foreground text-xl md:text-2xl font-black uppercase tracking-wide mb-2 text-center">
-              🔥 Clique e Assista Agora
+              Assista e aprenda a SALVAR
             </p>
             <p className="text-primary text-lg font-bold mb-3">
-              Te espero do outro lado...
+              antes que seja tarde
             </p>
-            <p className="text-muted-foreground text-sm">
-              🔊 Ative o som para a experiência completa
-            </p>
+            
+            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+              <span className="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+              <span>Vídeo curto de 2 minutos</span>
+              <span>•</span>
+              <span>🔊 Ative o som</span>
+            </div>
           </div>
         )}
 

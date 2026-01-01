@@ -173,6 +173,19 @@ const Index = () => {
               <span className="text-sm font-bold">AO VIVO • {viewerCount} mães assistindo</span>
             </div>
 
+            {/* Avatar da Especialista */}
+            <div className="relative mb-5">
+              <div className="absolute inset-0 bg-destructive/30 blur-2xl rounded-full scale-125 animate-pulse"></div>
+              <img 
+                src={avatarMaeAguia} 
+                alt="Especialista em Primeiros Socorros" 
+                className="relative w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-destructive/50 shadow-glow object-cover"
+              />
+              <div className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full">
+                Enfermeira
+              </div>
+            </div>
+
             {/* Headline CHOCANTE */}
             <div className="text-center mb-6">
               <p className="text-destructive text-lg md:text-xl font-black mb-2 animate-pulse">

@@ -175,15 +175,12 @@ const Index = () => {
 
             {/* Avatar da Especialista */}
             <div className="relative mb-5">
-              <div className="absolute inset-0 bg-destructive/30 blur-2xl rounded-full scale-125 animate-pulse"></div>
+              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-110"></div>
               <img 
                 src={avatarMaeAguia} 
-                alt="Especialista em Primeiros Socorros" 
-                className="relative w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-destructive/50 shadow-glow object-cover"
+                alt="Mãe Águia" 
+                className="relative w-28 h-28 md:w-36 md:h-36 rounded-full border-3 border-primary/50 object-cover"
               />
-              <div className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full">
-                Enfermeira
-              </div>
             </div>
 
             {/* Headline CHOCANTE */}

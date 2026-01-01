@@ -76,41 +76,53 @@ const Index = () => {
             }}
           >
             {/* Avatar */}
-            <div className="relative mb-6">
+            <div className="relative mb-5">
               <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full scale-125"></div>
               <img 
                 src={avatarMaeAguia} 
                 alt="Mãe Águia" 
-                className="relative w-32 h-32 rounded-full border-4 border-primary/50 object-cover"
+                className="relative w-28 h-28 rounded-full border-4 border-primary/50 object-cover"
               />
             </div>
 
-            {/* Headline única e chocante */}
-            <h1 className="text-4xl md:text-5xl font-black text-center leading-tight mb-4">
-              <span className="text-destructive">ENGASGO</span>
-              <span className="text-foreground"> mata bebê</span>
+            {/* Headline principal */}
+            <h1 className="text-2xl md:text-3xl font-black text-center leading-tight mb-4">
+              <span className="text-foreground">A cada segundo que passa,</span>
               <br />
-              <span className="text-foreground">em </span>
-              <span className="text-primary">4 minutos</span>
+              <span className="text-foreground">seu bebê corre </span>
+              <span className="text-destructive">RISCO DE ENGASGO</span>
             </h1>
 
-            <p className="text-muted-foreground text-lg text-center mb-8 max-w-xs">
-              Você saberia o que fazer?
+            {/* 3 consequências */}
+            <div className="bg-secondary/80 border border-destructive/30 rounded-2xl p-4 mb-5 max-w-sm">
+              <p className="text-center text-foreground font-bold text-base mb-3">
+                3 coisas podem acontecer:
+              </p>
+              <div className="flex justify-center gap-3 text-sm">
+                <span className="text-muted-foreground">😰 Engasgo</span>
+                <span className="text-muted-foreground">😮‍💨 Desengasgo</span>
+                <span className="text-destructive font-bold">💔 Morte</span>
+              </div>
+            </div>
+
+            {/* Pergunta */}
+            <p className="text-primary text-xl font-black text-center mb-6 max-w-xs">
+              Você estaria preparada para essa situação?
             </p>
             
             {/* Botão de play GRANDE */}
             <div className="relative mb-4">
               <div className="absolute inset-0 bg-primary/50 blur-3xl rounded-full animate-pulse scale-150"></div>
-              <div className="relative bg-primary rounded-full p-8 shadow-glow hover:scale-110 transition-transform">
-                <span className="text-5xl text-primary-foreground">▶</span>
+              <div className="relative bg-primary rounded-full p-7 shadow-glow hover:scale-110 transition-transform">
+                <span className="text-4xl text-primary-foreground">▶</span>
               </div>
             </div>
 
-            <p className="text-foreground text-lg font-bold mb-2">
-              Toque para assistir
+            <p className="text-foreground text-base font-bold mb-1">
+              Descubra o próximo passo
             </p>
             <p className="text-muted-foreground text-sm">
-              🔊 Ative o som • 2 min
+              🔊 Ative o som
             </p>
           </div>
         )}

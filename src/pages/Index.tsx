@@ -165,14 +165,11 @@ const Index = () => {
         {!videoStarted && (
           <div 
             onClick={handleStartVideo}
-            className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-background px-6"
+            className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer px-6"
+            style={{
+              background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.15) 0%, hsl(var(--background)) 50%)'
+            }}
           >
-            {/* Badge de urgência */}
-            <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-destructive/90 text-destructive-foreground px-4 py-2 rounded-full animate-pulse">
-              <span className="w-2 h-2 bg-white rounded-full animate-ping"></span>
-              <span className="text-sm font-bold">AO VIVO • {viewerCount} mães assistindo</span>
-            </div>
-
             {/* Avatar da Especialista */}
             <div className="relative mb-5">
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-110"></div>

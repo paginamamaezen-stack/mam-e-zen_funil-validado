@@ -403,7 +403,7 @@ const Index = () => {
                         </p>
                         <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 mb-5">
                           <p className="text-foreground text-base">
-                            Por apenas <span className="text-primary font-black text-xl">R$ 49,90</span> você terá conhecimento para <span className="font-bold">proteger seu filhote para sempre</span>.
+                            Com nosso Kit Vitalício você terá conhecimento para <span className="font-bold">proteger seu filhote para sempre</span>.
                           </p>
                         </div>
                         <button
@@ -685,80 +685,137 @@ const Index = () => {
               </p>
             </section>
 
-            {/* OFERTA FINAL - ÚNICO BOTÃO DE CHECKOUT */}
+            {/* JORNADA ATÉ O CHECKOUT */}
+            <section className="mb-10">
+              <div className="text-center mb-8">
+                <span className="text-primary text-xs font-bold uppercase tracking-widest">Sua Jornada</span>
+                <h2 className="text-2xl font-black mt-2">Como funciona o acesso</h2>
+              </div>
+              
+              {/* Timeline de Etapas */}
+              <div className="relative">
+                {/* Linha conectora */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 -translate-x-1/2 hidden md:block"></div>
+                
+                <div className="space-y-6">
+                  {/* Etapa 1 */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
+                      <span className="text-primary font-black text-xl">1</span>
+                    </div>
+                    <div className="flex-1 bg-secondary/50 border border-border rounded-xl p-4">
+                      <p className="text-foreground font-bold text-base">📹 Assistiu o vídeo</p>
+                      <p className="text-muted-foreground text-sm">Você já conhece a realidade</p>
+                    </div>
+                    <span className="text-green-400 text-xl">✓</span>
+                  </div>
+                  
+                  {/* Etapa 2 */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
+                      <span className="text-primary font-black text-xl">2</span>
+                    </div>
+                    <div className="flex-1 bg-secondary/50 border border-border rounded-xl p-4">
+                      <p className="text-foreground font-bold text-base">🦅 Completou o Quiz</p>
+                      <p className="text-muted-foreground text-sm">Você provou ser uma Mãe Águia!</p>
+                    </div>
+                    <span className="text-green-400 text-xl">✓</span>
+                  </div>
+                  
+                  {/* Etapa 3 - Ação */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary border-2 border-primary flex items-center justify-center animate-pulse">
+                      <span className="text-primary-foreground font-black text-xl">3</span>
+                    </div>
+                    <div className="flex-1 bg-gradient-to-r from-primary/20 to-primary/5 border-2 border-primary/40 rounded-xl p-4">
+                      <p className="text-primary font-black text-base">👑 Garanta seu acesso</p>
+                      <p className="text-foreground text-sm font-medium">Última etapa para virar fundadora!</p>
+                    </div>
+                    <span className="text-primary text-xl animate-bounce">→</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* O QUE VOCÊ VAI RECEBER */}
+            <section className="gradient-card border border-border rounded-[18px] p-6 mb-10">
+              <div className="text-center mb-6">
+                <span className="text-primary text-xs font-bold uppercase tracking-widest">Incluído no Kit</span>
+                <h2 className="text-2xl font-black mt-2">O que você vai receber</h2>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 bg-secondary/50 rounded-lg p-3 border border-border/50">
+                  <span className="text-primary text-xl">✔</span>
+                  <span className="text-foreground font-medium">Guia completo de primeiros socorros infantis</span>
+                </div>
+                <div className="flex items-center gap-3 bg-secondary/50 rounded-lg p-3 border border-border/50">
+                  <span className="text-primary text-xl">✔</span>
+                  <span className="text-foreground font-medium">Checklist de sinais de alerta</span>
+                </div>
+                <div className="flex items-center gap-3 bg-secondary/50 rounded-lg p-3 border border-border/50">
+                  <span className="text-primary text-xl">✔</span>
+                  <span className="text-foreground font-medium">Técnicas para acalmar o bebê</span>
+                </div>
+                <div className="flex items-center gap-3 bg-secondary/50 rounded-lg p-3 border border-border/50">
+                  <span className="text-primary text-xl">✔</span>
+                  <span className="text-foreground font-medium">Todas as atualizações futuras incluídas</span>
+                </div>
+                <div className="flex items-center gap-3 bg-secondary/50 rounded-lg p-3 border border-border/50">
+                  <span className="text-primary text-xl">✔</span>
+                  <span className="text-foreground font-medium">Suporte 24h em português</span>
+                </div>
+                <div className="flex items-center gap-3 bg-primary/20 rounded-lg p-3 border border-primary/30">
+                  <span className="text-primary text-xl">🎁</span>
+                  <span className="text-primary font-bold">BÔNUS: Grupo VIP de mães fundadoras</span>
+                </div>
+              </div>
+            </section>
+
+            {/* GARANTIAS E SEGURANÇA */}
+            <section className="mb-10">
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
+                  <span className="text-3xl mb-2 block">🛡️</span>
+                  <p className="text-green-400 font-bold text-sm">Garantia de 7 dias</p>
+                  <p className="text-muted-foreground text-xs">Devolução sem perguntas</p>
+                </div>
+                <div className="bg-secondary/50 border border-border rounded-xl p-4 text-center">
+                  <span className="text-3xl mb-2 block">🔒</span>
+                  <p className="text-foreground font-bold text-sm">Compra Segura</p>
+                  <p className="text-muted-foreground text-xs">Ambiente criptografado</p>
+                </div>
+                <div className="bg-secondary/50 border border-border rounded-xl p-4 text-center">
+                  <span className="text-3xl mb-2 block">♾️</span>
+                  <p className="text-foreground font-bold text-sm">Acesso Vitalício</p>
+                  <p className="text-muted-foreground text-xs">Sem mensalidades</p>
+                </div>
+                <div className="bg-secondary/50 border border-border rounded-xl p-4 text-center">
+                  <span className="text-3xl mb-2 block">💳</span>
+                  <p className="text-foreground font-bold text-sm">Parcelamento</p>
+                  <p className="text-muted-foreground text-xs">PIX, cartão ou boleto</p>
+                </div>
+              </div>
+            </section>
+
+            {/* CTA FINAL SEM PREÇO */}
             <section id="offer" className="gradient-offer border-2 border-primary/30 rounded-[22px] p-8 text-center shadow-offer">
               <div className="bg-primary/30 border border-primary inline-block px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide mb-4">
-                👑 Fundadora Vitalícia
+                👑 Oferta Exclusiva de Fundadora
               </div>
 
-              <div className="text-muted-foreground line-through text-lg mb-1">De R$ 197</div>
-              <div className="text-5xl font-black my-3 tracking-tight">
-                R$ 49<small className="text-2xl">,90</small>
-              </div>
+              <h2 className="text-2xl font-black mb-4">
+                Garanta seu acesso <span className="text-primary">agora</span>
+              </h2>
+              
+              <p className="text-muted-foreground mb-6">
+                Veja as condições especiais para Mães Águia no checkout
+              </p>
 
-              <div className="inline-block bg-secondary border border-border rounded-full px-4 py-2 mb-6">
-                <p className="text-muted-foreground text-sm">
-                  💳 Pagamento único • ♾️ Acesso vitalício
-                </p>
-              </div>
-
-              {/* Comparativo de valor */}
-              <div className="text-left space-y-4 mb-6">
-                <div className="bg-secondary/70 border border-border rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-primary text-xl font-bold mt-0.5">✔</span>
-                    <div>
-                      <p className="text-foreground font-bold text-base leading-relaxed">
-                        Uma única consulta particular de urgência infantil pode custar de{" "}
-                        <span className="text-primary">R$ 250 a R$ 600</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-secondary/70 border border-border rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-primary text-xl font-bold mt-0.5">✔</span>
-                    <div>
-                      <p className="text-foreground font-bold text-base leading-relaxed">
-                        Uma ida rápida a uma clínica particular custa, em média,{" "}
-                        <span className="text-primary">R$ 300</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-r from-primary/20 to-primary/5 border-2 border-primary/40 rounded-xl p-5">
-                  <div className="flex items-start gap-3">
-                    <span className="text-primary text-2xl font-bold mt-0.5">✔</span>
-                    <div>
-                      <p className="text-foreground font-bold text-lg leading-relaxed">
-                        Aqui você paga apenas{" "}
-                        <span className="text-primary text-2xl font-black">R$ 49,90</span>{" "}
-                        <span className="text-muted-foreground font-normal">uma única vez</span>
-                      </p>
-                      <p className="text-primary font-bold mt-2 text-base">
-                        🦅 E tem orientação vitalícia com o Treinamento Mãe Águia
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Benefícios adicionais */}
-              <div className="grid grid-cols-3 gap-2 mb-6">
-                <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center">
-                  <span className="text-2xl mb-1 block">♾️</span>
-                  <span className="text-xs text-muted-foreground">Acesso Vitalício</span>
-                </div>
-                <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center">
-                  <span className="text-2xl mb-1 block">🔄</span>
-                  <span className="text-xs text-muted-foreground">Atualizações Grátis</span>
-                </div>
-                <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center">
-                  <span className="text-2xl mb-1 block">💬</span>
-                  <span className="text-xs text-muted-foreground">Suporte 24h</span>
-                </div>
+              {/* Urgência */}
+              <div className="inline-flex items-center gap-2 bg-destructive/20 border border-destructive/40 rounded-full px-4 py-2 mb-6">
+                <span className="w-2 h-2 bg-destructive rounded-full animate-pulse"></span>
+                <span className="text-destructive font-bold text-sm">Vagas limitadas para fundadoras</span>
               </div>
 
               <a
@@ -766,12 +823,22 @@ const Index = () => {
                 onClick={handleCheckoutClick}
                 className="block w-full gradient-primary py-5 rounded-[14px] font-black text-primary-foreground text-lg uppercase tracking-wide shadow-glow hover:scale-[1.02] transition-transform"
               >
-                👑 Ser Fundadora MamãeZen Agora
+                🦅 Ver Oferta Especial →
               </a>
               
-              <p className="text-muted-foreground text-xs mt-4">
-                🔒 Compra 100% segura • Garantia de 7 dias
-              </p>
+              <div className="flex items-center justify-center gap-4 mt-5 text-muted-foreground text-xs">
+                <span className="flex items-center gap-1">
+                  <span>🔒</span> Seguro
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1">
+                  <span>🛡️</span> Garantia 7 dias
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1">
+                  <span>💳</span> Parcele
+                </span>
+              </div>
             </section>
             
             {/* FOOTER */}
